@@ -36,7 +36,7 @@ class PasswordResetService(
             )
         )
 
-        val resetLink = "http://localhost:5173/reset-password?token=$token"
+        val resetLink = "https://vercel-fronted-tau.vercel.app/reset-password?token=$token"
         emailService.sendResetPasswordEmail(user.email, resetLink)
     }
 
