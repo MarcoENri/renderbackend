@@ -46,10 +46,10 @@ spring:
   # =========================
   mail:
     protocol: smtp
-    host: smtp.gmail.com
+    host: smtp-relay.brevo.com
     port: 587
-    username: titulacionsudamericano@gmail.com
-    password: fpicczoauqfbranx
+    username: a2150c001@smtp-brevo.com
+    password: xsmtpsib-5fb4fc3124fbdc8e8ad7d54eace7d3b3069bcf2aa843651aaa2f0b3580b68bb6-8wcUwFIRPoqVj7Zs
     properties:
       mail:
         debug: true
@@ -58,7 +58,7 @@ spring:
           starttls:
             enable: true
           ssl:
-            trust: smtp.gmail.com  # <- MUY IMPORTANTE
+            trust: smtp-relay.brevo.com  # <- MUY IMPORTANTE
           connectiontimeout: 5000
           timeout: 5000
           writetimeout: 5000
@@ -93,5 +93,5 @@ app:
       password: Admin123*
 
   mail:
-    from: titulacionsudamericano@gmail.com
+    from: a2150c001@smtp-brevo.com
     enabled: true
