@@ -42,14 +42,14 @@ spring:
         period: 3600
 
   # =========================
-  # ✉️ CONFIGURACIÓN DE EMAIL
+  # ✉️ CONFIGURACIÓN DE EMAIL (Brevo SMTP)
   # =========================
   mail:
     protocol: smtp
     host: smtp-relay.brevo.com
     port: 587
-    username: a2150c001@smtp-brevo.com
-    password: xsmtpsib-5fb4fc3124fbdc8e8ad7d54eace7d3b3069bcf2aa843651aaa2f0b3580b68bb6-8wcUwFIRPoqVj7Zs
+    username: ${SMTP_USERNAME}   # ⚡ Variable de entorno en Render
+    password: ${SMTP_PASSWORD}   # ⚡ Variable de entorno en Render
     properties:
       mail:
         debug: true
@@ -58,10 +58,11 @@ spring:
           starttls:
             enable: true
           ssl:
-            trust: smtp-relay.brevo.com  # <- MUY IMPORTANTE
+            trust: smtp-relay.brevo.com
           connectiontimeout: 5000
           timeout: 5000
           writetimeout: 5000
+
 logging:
   level:
     org.springframework.security: DEBUG
@@ -74,7 +75,6 @@ logging:
 # CONFIGURACIÓN DE LA APP
 # =========================
 app:
-  # ✅ NUEVA CONFIGURACIÓN PARA RÚBRICAS
   storage:
     final-defense:
       rubrics-dir: uploads/final-defense/rubrics
@@ -93,5 +93,5 @@ app:
       password: Admin123*
 
   mail:
-    from: a2150c001@smtp-brevo.com
+    from: ${SMTP_USERNAME}       # ⚡ Usa la misma cuenta de Brevo
     enabled: true
